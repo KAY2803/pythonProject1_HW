@@ -15,8 +15,11 @@ def guess_num_game():
         except ValueError:
             print('Это не число!!!')
             continue
-        result = []
-        str_guess_num = str(guess_num)
+        if isinstance(guess_num, int):
+            break
+    result = []
+    str_guess_num = str(guess_num)
+    while True:
         for digit in str_guess_num:
             if digit in str(num) and str_guess_num.find(str(digit)) == str(num).find(str(digit)):
                 result.append('A')
