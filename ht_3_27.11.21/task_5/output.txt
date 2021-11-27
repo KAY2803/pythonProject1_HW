@@ -1,0 +1,12 @@
+There are many ways of concatenating lists in Python.
+Specifically, in this article, we'll be going over how to concatenate two lists in Python using the plus operator,
+unpack operator, multiply operator, manual for loop concatenation, the itertools.chain() function and
+the inbuilt list method extend().
+This method allows you to join multiple lists.
+It is a fairly new feature and only available from Python 3.6+.
+The unpacking operator, as the name implies, unpacks an iterable object into its elements.
+Unpacking is useful when we want to generate a plethora of arguments from a single list.
+The multiply (*) operator is special case of list concatenation in Python.
+It is used to repeat a whole list multiple times (which is why it's denoted with a multiplication operator):
+In this method we will go through one list while appending each of its elements to another list one by one.
+When the loop is over you will have a single list with all the desired elements:

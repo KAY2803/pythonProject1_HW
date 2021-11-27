@@ -1,0 +1,6 @@
+There are many ways of concatenating lists in Python.
+Specifically, in this article, we'll be going over how to concatenate two lists in Python using the plus operator,
+unpack operator, multiply operator, manual for loop concatenation, the itertools.chain() function and
+the inbuilt list method extend().
+['Hello, world']
+'dog is sleeping'
