@@ -2,9 +2,9 @@
 
 def gen_return(n: int):
     with open('output.txt', 'r', encoding='utf8') as file:
-        for str_ in file.read():
-            yield str_[:3]
+        for symbol in file.read():
+            yield symbol[:n]
 
-symbols = gen_return(3)
-for _ in range(12):
+symbols = gen_return(5)
+for _ in range(15):
     print(next(symbols), end='')
