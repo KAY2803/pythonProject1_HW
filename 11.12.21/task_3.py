@@ -12,6 +12,7 @@
 "hEllo"
 "Hello"
 
+# example 1
 def endless_gen(word: str):
     word = word.lower()
     one_way = range(len(word))
@@ -27,10 +28,10 @@ def endless_gen(word: str):
 
 
 mygen = endless_gen('mmmmm')
-for _ in range(1):
+for _ in range(10):
     print(next(mygen))
 
-
+# example 2
 def endless_gen(line: str):
     one_way = range(len(line))
     while True:
