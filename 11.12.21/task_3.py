@@ -12,6 +12,8 @@
 "hEllo"
 "Hello"
 
+
+
 # example 1
 def endless_gen(word: str):
     word = word.lower()
@@ -25,11 +27,11 @@ def endless_gen(word: str):
                 i -= 1
             if i == 1:
                 one_way = range(len(word))
+import time
 
-
-mygen = endless_gen('mmmmm')
-for _ in range(10):
-    print(next(mygen))
+#mygen = endless_gen('mmmmm')
+#for _ in range(10):
+ #   print(next(mygen))
 
 # example 2
 def endless_gen(line: str):
@@ -46,5 +48,6 @@ def endless_gen(line: str):
 
 
 mygen = endless_gen('-----')
-for _ in range(10):
-    print(next(mygen))
+while True:
+    time.sleep(0.5)
+    print('\r', next(mygen), end='')
