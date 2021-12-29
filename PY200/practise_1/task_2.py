@@ -5,21 +5,32 @@
 # Отрисовать фигуру с помощью библиотеки Plotly или Matplotlib.
 
 import plotly
-
-from typing import Optional
-import plotly.graph_objs as go
+import plotly.graph_objects as go
 
 
 class Triangle:
+    """Класс, который описывает треугольник"""
+
     def __init__(self, coordinates: [int, int, int], color_line: tuple[int, int, int]):
+        """
+        Создаем новый треугольник
+        :param coordinates: координаты треугольника в формате 'xy' (пользователь может ввести только двузначное число)
+        :param color_line: цвет окружности треугольника в формате 'rgb'
+        :param color_fill: цвет заливки треугольника
+        :param lines: длина каждой из сторон треугольника
+        """
         self.__coordinates = self.__check_coordinates(coordinates)
-        self.__lines = None
-        self.init_lines()
         self.__color_line = self.__check_color_line(color_line)
         self.__color_fill = 'rgb(255, 230, 110)'
+        self.__lines = None
+        self.init_lines()
+
 
     @staticmethod
     def __check_coordinates(coordinates):
+        """Метод, который проверяет корректность введенных пользователем значений координат
+        каждой вершины треугольника
+        """
         for num in coordinates:
             if not isinstance(num, int):
                 raise TypeError
@@ -29,6 +40,7 @@ class Triangle:
 
     @staticmethod
     def __check_color_line(color_line: tuple[int, int, int]):
+        """Метод, который проверяет корректность введенных пользователем значений цвета окружности треугольника"""
         for num in color_line:
             if not isinstance(num, int):
                 raise TypeError
@@ -39,6 +51,7 @@ class Triangle:
         return color_line
 
     def init_lines(self):
+        """Метод, который рассчитывает длину сторон треугольника"""
         line1 = ((self.get_coordinates()[0][1] - self.get_coordinates()[0][0]) ** 2
                 + (self.get_coordinates()[1][1] - self.get_coordinates()[1][0]) ** 2) ** 0.5
         line2 = (line1 ** 2 + (self.get_coordinates()[0][1] - self.get_coordinates()[0][0]) ** 2) ** 0.5
@@ -46,12 +59,16 @@ class Triangle:
         self.__lines = line1, line2, line3
 
     def get_color_line(self):
+        """Метод, который возвращает цвет окружности в формате 'rgb'"""
         return f'rgb{self.__color_line}'
 
     def get_color_fill(self):
+        """Метод, который возвращает цвет заливки треугольника"""
         return self.__color_fill
 
     def get_coordinates(self):
+        """Метод, который возвращает 2 списка, один из которых содержит значения координат 'x',
+        а второй - значения 'y'"""
         x = []
         y = []
         for num in map(str, self.__coordinates):
@@ -68,9 +85,11 @@ class Triangle:
         return x, y
 
     def get_perimetr(self):
+        """Метод, который возвращает значение периметра треугольника"""
         return f'Периметр экземпляра: {self} = {self.__lines[0] + self.__lines[1] + self.__lines[2]:.2f}'
 
     def get_square(self):
+        """Метод, который возвращает значение площадь треугольника"""
         pp = self.__lines[0] + self.__lines[1] + self.__lines[2] / 2
         return f'Площадь экземпляра: {self} = {(pp * (pp - self.__lines[0]) * (pp - self.__lines[1]) * (pp - self.__lines[2])) ** 0.5:.2f}'
 

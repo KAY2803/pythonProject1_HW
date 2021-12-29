@@ -1,15 +1,25 @@
 # Описать фигуру в пространстве и отрисовать её
 
+import plotly
 import plotly.graph_objects as go
 
 class Triangle:
+    """Класс, который описывает треугольник"""
+
     def __init__(self, coordinates: [int, int, int, int], color: tuple[int, int, int]):
+        """
+        Создаем новый треугольник
+        :param coordinates: координаты треугольника в формате 'xyz' (пользователь может ввести только трехзначное число)
+        :param color: цвет заливки треугольника
+        """
         self.__coordinates = self.__check_coordinates(coordinates)
         self.__color = self.__check_color(color)
 
-
     @staticmethod
     def __check_coordinates(coordinates):
+        """Метод, который проверяет корректность введенных пользователем значений координат
+        каждой вершины треугольника
+        """
         for num in coordinates:
             if not isinstance(num, int):
                 raise TypeError
@@ -19,6 +29,7 @@ class Triangle:
 
     @staticmethod
     def __check_color(color: tuple[int, int, int]):
+        """Метод, который проверяет корректность введенных пользователем значений цвета заливки треугольника"""
         for num in color:
             if not isinstance(num, int):
                 raise TypeError
@@ -29,9 +40,12 @@ class Triangle:
         return color
 
     def get_color(self):
+        """Метод, который возвращает цвет заливки треугольника"""
         return f'rgb{self.__color}'
 
     def get_coordinates(self):
+        """Метод, который возвращает 2 списка, один из которых содержит значения координат 'x',
+        второй - значения 'y', а третий - значения 'z'"""
         x = []
         y = []
         z = []

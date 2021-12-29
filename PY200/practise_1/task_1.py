@@ -7,11 +7,18 @@
 # Создать несколько экземпляров класса вашей фигуры и напечатать их repr.
 
 class Triangle:
+    """Класс, который описывает треугольник"""
+
     def __init__(self, lines: [int, int, int]):
+        """
+        Создаем новый треугольник
+        :param lines: Длина каждой из трех сторон треугольника
+        """
         self.__lines = self.__check_lines(lines)
 
     @staticmethod
     def __check_lines(lines):
+        """Метод, который проверяет корректность введенных пользователем значений длины каждой стороны треугольника"""
         for line in lines:
             if not isinstance(line, int):
                 raise TypeError
@@ -34,9 +41,11 @@ class Triangle:
         return lines
 
     def get_perimetr(self):
+        """Метод, который возвращает значение периметра треугольника"""
         return f'Периметр экземпляра: {self} = {sum(self.__lines)}'
 
     def get_square(self):
+        "Метод, который возвращает значение площади треугольника"""
         pp = sum(self.__lines) / 2
         return f'Площадь экземпляра: {self} = {(pp * (pp - self.__lines[0]) * (pp - self.__lines[1]) * (pp - self.__lines[2])) ** 0.5:.2f}'
 
