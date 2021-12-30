@@ -45,12 +45,12 @@ class Triangle:
         return f'Периметр экземпляра: {self} = {sum(self.__lines)}'
 
     def get_square(self):
-        "Метод, который возвращает значение площади треугольника"""
+        """Метод, который возвращает значение площади треугольника"""
         pp = sum(self.__lines) / 2
         return f'Площадь экземпляра: {self} = {(pp * (pp - self.__lines[0]) * (pp - self.__lines[1]) * (pp - self.__lines[2])) ** 0.5:.2f}'
 
     def __repr__(self):
-        return f'треугольник со сторонами {self.__lines}'
+        return f'triangle({self.__lines})'
 
 
 triangle1 = Triangle([5, 8, 10])

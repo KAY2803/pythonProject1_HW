@@ -94,12 +94,12 @@ class Triangle:
         return f'Площадь экземпляра: {self} = {(pp * (pp - self.__lines[0]) * (pp - self.__lines[1]) * (pp - self.__lines[2])) ** 0.5:.2f}'
 
     def __repr__(self):
-        return f'треугольник со сторонами {self.__lines[0]:.2f}, {self.__lines[1]:.2f}, {self.__lines[2]:.2f}' \
-               f' линией цвета rgb{self.__color_line}'
+        return f'triangle({self.__coordinates}, {self.__color_line})'
 
 
 triangle1 = Triangle([00, 50, 45], (255, 123, 233,))
 triangle1.width = 5
+print(triangle1)
 
 
 fig = go.Figure(go.Scatter(
